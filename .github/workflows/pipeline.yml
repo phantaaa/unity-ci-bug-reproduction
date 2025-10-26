@@ -20,7 +20,7 @@ jobs:
           restore-keys: Library-Windows
 
       - name: Build Unity Project
-        uses: game-ci/unity-builder@v4
+        uses: phantaaa/unity-builder@main
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
@@ -30,6 +30,5 @@ jobs:
           targetPlatform: StandaloneWindows64
           buildName: TestName
           buildsPath: builds
-          customParameters: '-force-driver-type-warp'
-          #enableGpu: true
+          enableGpu: true
     
