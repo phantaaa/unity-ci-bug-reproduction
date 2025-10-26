@@ -30,5 +30,6 @@ jobs:
           targetPlatform: StandaloneWindows64
           buildName: TestName
           buildsPath: builds
-          enableGpu: true
+          customParameters: '-force-driver-type-warp'
+          #enableGpu: true
     
