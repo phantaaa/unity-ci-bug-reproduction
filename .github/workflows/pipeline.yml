@@ -30,6 +30,6 @@ jobs:
           targetPlatform: StandaloneWindows64
           buildName: TestName
           buildsPath: builds
-          customParameters: -accept-apiupdate -stackTraceLogType Full -timestamps -quitTimeout 800 -force-driver-type-warp  -nographics
-          enableGpu: true
+          customParameters: -accept-apiupdate -stackTraceLogType Full -timestamps -quitTimeout 800 -force-driver-type-warp
+          #enableGpu: true
     
