@@ -30,6 +30,6 @@ jobs:
           targetPlatform: StandaloneWindows64
           buildName: TestName
           buildsPath: builds
-          customParameters: -burst-disable-compilation -accept-apiupdate -force-free -il2cpp-code-generation 2
-          #enableGpu: true
+          customParameters: -accept-apiupdate -stackTraceLogType Full -timestamps -quitTimeout 800 -force-glcore -nographics
+          enableGpu: true
     
