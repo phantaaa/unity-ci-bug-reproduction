@@ -18,18 +18,29 @@ jobs:
           path: Library
           key: Library-Windows${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: Library-Windows
+          
+          
+      - name: Check for WARP
+        shell: pwsh
+        run: |
+            if (Test-Path "C:\Windows\System32\d3d10warp.dll") {
+              Write-Host "WARP is installed."
+            } else {
+              Write-Error "WARP not found!"
+            }
 
       - name: Build Unity Project
-        uses: game-ci/unity-builder@v4
+        uses: phantaaa/unity-builder@main
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          D3D_FORCE_WARP: 1
         with:
           versioning: None
           targetPlatform: StandaloneWindows64
           buildName: TestName
           buildsPath: builds
-          customParameters: -accept-apiupdate -stackTraceLogType Full -timestamps -quitTimeout 800 -force-driver-type-warp
+          customParameters: -accept-apiupdate -stackTraceLogType Full -timestamps -quitTimeout 800 -force-driver-type-warp -force-d3d11
           #enableGpu: true
     
