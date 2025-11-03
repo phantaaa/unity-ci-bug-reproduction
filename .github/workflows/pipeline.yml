@@ -2,9 +2,6 @@ name: Buildalon Unity Build
 on:
   push:
     branches: ['master']
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
 jobs:
   build:
     name: (${{ matrix.os }}) ${{ matrix.build-target }}
